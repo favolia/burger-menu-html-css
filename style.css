@@ -1,0 +1,101 @@
+/* ! hapus padding dan margin bawaan semua tag html ! */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+/* custom navbar */
+nav {
+    /* tinggi fix navbar */
+    height: 3rem; /* 1rem = 16px */
+
+    /* lebar fix navbar */
+    width: 100%;
+
+    background-color: steelblue;
+    display: flex;
+
+    /* padding atas bawah 0, padding kiri kanan 2rem */
+    padding: 0 2rem;
+
+    /* memisahkan sejauh mungkin */
+    justify-content: space-between;
+
+    /* menengahkan secara vertical [atas, bawah] */
+    align-items: center;
+}
+
+
+
+
+
+/* custom burger menu */
+.tombol-burger {
+    height: 1.5rem; /* 20% lebih pendek dari tinggi navbar */
+    width: 1.8rem;
+
+    /* menghilangkan burger menu sebelum lebar layar 640px (ukuran rata" layar hp) */
+    display: none;
+
+    /* mengganti direksi yang tadinya row(sejajar kiri kanan) menjadi column(sejajar atas bawah) */
+    flex-direction: column;
+
+    /* mengganti cursor seperti link/bisa diklik */
+    cursor: pointer;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.garis-burger {
+    /* memenuhi lebar tombol-burger */
+    width: 100%;
+    height: .3rem;
+
+    /* menumpulkan garis burgernya */
+    border-radius: 2rem;
+
+    background-color: white;
+}
+
+/* ketika layar lebih kecil dari 640px atau */
+/* sama dengan 640px, munculkan burger menu-nya */ 
+@media (width <= 640px) {
+
+    /* ubah isi displaynya yang tadinya none menjadi flex */
+    .tombol-burger {
+        /* kadang isi display awalnya lebih di pentingkan yang membuat isi display tidak berubah */
+        /* fungsi !importan akan membuat kode dibawah ini menjadi di utamakan oleh css  */
+        display: flex !important;
+    }
+
+    /* ubah isi display (.links) menjadi none agar hilang di lebar layar 640px/mobile */
+    .links {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+h1 {
+    color: white;
+}
+
+/* cuman memperbaiki tampilan link */
+.links {
+    display: flex;
+    gap: 1rem;
+    color: white;
+}
+
+.links > a {
+    /* mewariskan warna dari (.links) atau containernya/induk yang membungkus tag a */
+    color: inherit;
+}
